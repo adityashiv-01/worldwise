@@ -49,7 +49,7 @@ function reducer(state, action) {
   }
 }
 
-export function CitiesProvider({ children }) {
+function CitiesProvider({ children }) {
   // const [cities, setCities] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
   // const [currentCity, setCurrentCity] = useState({});
@@ -149,10 +149,12 @@ export function CitiesProvider({ children }) {
   );
 }
 
-export function useCities() {
+function useCities() {
   const context = useContext(CitiesContext);
   if (context === undefined)
     throw new Error("Context value trying to be read outside scope.");
 
   return context;
 }
+
+export { useCities, CitiesProvider };
